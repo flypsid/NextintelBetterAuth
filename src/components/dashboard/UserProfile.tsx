@@ -64,7 +64,7 @@ type PasswordChangeFormData = {
 
 export function UserProfile() {
   const t = useTranslations("Dashboard.profile");
-  const { user } = useAuth();
+  const { user, refreshSession } = useAuth();
   const { hasSocialAuth } = useSocialAuth();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -149,6 +149,9 @@ export function UserProfile() {
 
       // Mettre à jour l'URL de l'avatar avec la réponse du serveur
       setAvatarUrl(result.avatarUrl);
+      
+      // Refresh the user session to get updated data
+      await refreshSession();
 
       toast.success(t("avatarUpdatedSuccess"));
     } catch (error) {
@@ -179,6 +182,9 @@ export function UserProfile() {
       if (fileInputRef.current) {
         fileInputRef.current.value = "";
       }
+      
+      // Refresh the user session to get updated data
+      await refreshSession();
 
       toast.success(t("avatarRemovedSuccess"));
     } catch (error) {
@@ -250,6 +256,8 @@ export function UserProfile() {
 
       if (result.success) {
         toast.success(t("updateSuccess"));
+        // Refresh the user session to get updated data
+        await refreshSession();
       } else {
         throw new Error(result.error || t("updateFailed"));
       }

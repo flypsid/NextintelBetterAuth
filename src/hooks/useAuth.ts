@@ -16,16 +16,22 @@ interface AuthState {
   session: Session["session"] | null;
   isLoading: boolean;
   isAuthenticated: boolean;
+  refreshSession: () => Promise<void>;
 }
 
 export function useAuth(): AuthState {
   // Use Better Auth's native useSession hook
-  const { data: session, isPending } = authClient.useSession();
+  const { data: session, isPending, refetch } = authClient.useSession();
+
+  const refreshSession = async () => {
+    await refetch();
+  };
 
   return {
     user: session?.user || null,
     session: session?.session || null,
     isLoading: isPending,
     isAuthenticated: !!session?.user,
+    refreshSession,
   };
 }
