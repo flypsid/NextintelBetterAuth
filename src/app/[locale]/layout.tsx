@@ -19,9 +19,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title:
-    "NextintelBetterAuth | Smart Finance Tracking, Invoicing & Money Growth",
+    "NextintelBetterAuth | AI-Powered YouTube & Social Media Analytics Tool",
   description:
-    "Seamless invoicing, smart budgeting, expense tracking, and wealth growth.",
+    "AI-Powered YouTube & Social Media Analytics Tool to help you understand your audience, optimize your content, and grow your business.",
   icons: {
     icon: "/images/favicon.ico",
   },

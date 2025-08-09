@@ -4,26 +4,26 @@ This is a Next.js boilerplate designed to kickstart your projects with a robust 
 
 ## Features
 
-*   **Secure Authentication**: Powered by `better-auth` for a secure and flexible authentication system.
-*   **Internationalization (i18n)**: `next-intl` is set up for multilingual support out-of-the-box.
-*   **Type-Safe Database ORM**: Uses `Drizzle ORM` for a type-safe and powerful database interface.
-*   **UI Components**: `Shadcn UI` for a set of accessible and customizable React components.
-*   **Validation**: `Zod` for schema validation and type safety.
-*   **Emailing**: `Resend` and `@react-email/components` for building and sending emails.
-*   **Styling**: `Tailwind CSS` for a utility-first CSS framework.
-*   **Linting and Formatting**: `ESLint` and `Prettier` are configured to ensure code quality.
+- **Secure Authentication**: Powered by `better-auth` for a secure and flexible authentication system.
+- **Internationalization (i18n)**: `next-intl` is set up for multilingual support out-of-the-box.
+- **Type-Safe Database ORM**: Uses `Drizzle ORM` for a type-safe and powerful database interface.
+- **UI Components**: `Shadcn UI` for a set of accessible and customizable React components.
+- **Validation**: `Zod` for schema validation and type safety.
+- **Emailing**: `Resend` and `@react-email/components` for building and sending emails.
+- **Styling**: `Tailwind CSS` for a utility-first CSS framework.
+- **Linting and Formatting**: `ESLint` and `Prettier` are configured to ensure code quality.
 
 ## Tech Stack
 
-*   [Next.js](https://nextjs.org/) – React Framework
-*   [React](https://react.dev/) – JavaScript library for building user interfaces
-*   [TypeScript](https://www.typescriptlang.org/) – Typed superset of JavaScript
-*   [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework
-*   [Drizzle ORM](https://orm.drizzle.team/) – TypeScript ORM for SQL databases
-*   [better-auth](https://www.npmjs.com/package/better-auth) – Authentication library
-*   [next-intl](https://next-intl-docs.vercel.app/) – Internationalization for Next.js
-*   [Zod](https://zod.dev/) – TypeScript-first schema validation
-*   [Shadcn UI](https://ui.shadcn.com/) – Accessible and customizable components
+- [Next.js](https://nextjs.org/) – React Framework
+- [React](https://react.dev/) – JavaScript library for building user interfaces
+- [TypeScript](https://www.typescriptlang.org/) – Typed superset of JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework
+- [Drizzle ORM](https://orm.drizzle.team/) – TypeScript ORM for SQL databases
+- [better-auth](https://www.npmjs.com/package/better-auth) – Authentication library
+- [next-intl](https://next-intl-docs.vercel.app/) – Internationalization for Next.js
+- [Zod](https://zod.dev/) – TypeScript-first schema validation
+- [Shadcn UI](https://ui.shadcn.com/) – Accessible and customizable components
 
 ## Project Structure
 
@@ -54,8 +54,8 @@ This is a Next.js boilerplate designed to kickstart your projects with a robust 
 
 ### Prerequisites
 
-*   Node.js (v20 or higher)
-*   npm, yarn, pnpm, or bun
+- Node.js (v20 or higher)
+- npm, yarn, pnpm, or bun
 
 ### Installation
 
@@ -96,8 +96,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 To learn more about the technologies used in this boilerplate, refer to their respective documentation:
 
-*   [Next.js Documentation](https://nextjs.org/docs)
-*   [better-auth Documentation](https://www.npmjs.com/package/better-auth)
-*   [next-intl Documentation](https://next-intl-docs.vercel.app/)
-*   [Drizzle ORM Documentation](https://orm.drizzle.team/docs)
-*   [Shadcn UI Documentation](https://ui.shadcn.com/docs)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [better-auth Documentation](https://www.npmjs.com/package/better-auth)
+- [next-intl Documentation](https://next-intl-docs.vercel.app/)
+- [Drizzle ORM Documentation](https://orm.drizzle.team/docs)
+- [Shadcn UI Documentation](https://ui.shadcn.com/docs)

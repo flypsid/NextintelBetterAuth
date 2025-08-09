@@ -3,6 +3,7 @@ import { ForgotPasswordEmail } from "@/components/emails/ForgotPasswordEmail";
 import { EmailVerificationEmail } from "@/components/emails/EmailVerificationEmail";
 import { EmailChangeVerificationEmail } from "@/components/emails/EmailChangeVerificationEmail";
 import { EmailChangeNotificationEmail } from "@/components/emails/EmailChangeNotificationEmail";
+import { PasswordChangeNotificationEmail } from "@/components/emails/PasswordChangeNotificationEmail";
 import { render } from "@react-email/render";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -36,12 +37,19 @@ interface SendEmailChangeNotificationParams {
   locale: "en" | "fr";
 }
 
+interface SendPasswordChangeNotificationParams {
+  to: string;
+  userName: string;
+  locale: "en" | "fr";
+}
+
 const getSubject = (
   type:
     | "forgot-password"
     | "email-verification"
     | "email-change-verification"
-    | "email-change-notification",
+    | "email-change-notification"
+    | "password-change-notification",
   locale: "en" | "fr"
 ) => {
   const subjects = {
@@ -60,6 +68,10 @@ const getSubject = (
     "email-change-notification": {
       en: "Email address change request - NextintelBetterAuth",
       fr: "Demande de changement d'adresse email - NextintelBetterAuth",
+    },
+    "password-change-notification": {
+      en: "Password changed - NextintelBetterAuth",
+      fr: "Mot de passe modifié - NextintelBetterAuth",
     },
   };
 
@@ -254,7 +266,7 @@ export async function sendEmailChangeNotification({
         userName,
         oldEmail: to,
         newEmail,
-        supportUrl: `${process.env.NEXT_PUBLIC_APP_URL}/contact`,
+        supportUrl: `${process.env.NEXT_PUBLIC_URL}/contact`,
         locale,
       })
     );
@@ -277,6 +289,66 @@ export async function sendEmailChangeNotification({
     return { success: true, data };
   } catch (error) {
     console.error("Error in sendEmailChangeNotification:", error);
+    throw error;
+  }
+}
+
+// Fonction pour envoyer la notification de changement de mot de passe
+export async function sendPasswordChangeNotification({
+  to,
+  userName,
+  locale,
+}: SendPasswordChangeNotificationParams) {
+  try {
+    console.log("Starting password change notification send process:", {
+      to,
+      userName,
+      locale,
+      hasResendKey: !!process.env.RESEND_API_KEY,
+    });
+
+    // Utiliser le template React Email pour la notification de changement de mot de passe
+    const emailHtml = await render(
+      PasswordChangeNotificationEmail({
+        userName,
+        userEmail: to,
+        changeDate: new Date().toLocaleString(
+          locale === "fr" ? "fr-FR" : "en-US",
+          {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            timeZoneName: "short",
+          }
+        ),
+        supportUrl: `${process.env.NEXT_PUBLIC_URL}/contact`,
+        locale,
+      })
+    );
+
+    const { data, error } = await resend.emails.send({
+      from: "noreply@deff-fondation.com",
+      to: [to],
+      subject: getSubject("password-change-notification", locale),
+      html: emailHtml,
+    });
+
+    if (error) {
+      console.error(
+        "Resend API error for password change notification:",
+        error
+      );
+      throw new Error(
+        `Failed to send password change notification: ${JSON.stringify(error)}`
+      );
+    }
+
+    console.log("Password change notification sent successfully:", data?.id);
+    return { success: true, data };
+  } catch (error) {
+    console.error("Error in sendPasswordChangeNotification:", error);
     throw error;
   }
 }

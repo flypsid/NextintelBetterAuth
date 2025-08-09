@@ -10,6 +10,7 @@ import {
   IconUser,
   IconMail,
   IconAlertTriangle,
+  IconLock,
 } from "@tabler/icons-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -39,8 +40,27 @@ const emailChangeSchema = z.object({
   currentPassword: z.string().min(1, "Current password is required"),
 });
 
+// Schéma de validation pour le changement de mot de passe
+// Schéma de validation pour le changement de mot de passe
+const createPasswordChangeSchema = (t: (key: string) => string) =>
+  z
+    .object({
+      currentPassword: z.string().min(1, t("currentPasswordRequired")),
+      newPassword: z.string().min(8, t("passwordTooShort")),
+      confirmNewPassword: z.string().min(1, t("confirmPasswordRequired")),
+    })
+    .refine((data) => data.newPassword === data.confirmNewPassword, {
+      message: t("passwordsDoNotMatch"),
+      path: ["confirmNewPassword"],
+    });
+
 type ProfileFormData = z.infer<typeof profileSchema>;
 type EmailChangeFormData = z.infer<typeof emailChangeSchema>;
+type PasswordChangeFormData = {
+  currentPassword: string;
+  newPassword: string;
+  confirmNewPassword: string;
+};
 
 export function UserProfile() {
   const t = useTranslations("Dashboard.profile");
@@ -65,6 +85,16 @@ export function UserProfile() {
   );
   const [showEmailChange, setShowEmailChange] = useState(false);
   const [pendingEmail, setPendingEmail] = useState(user?.pendingEmail || "");
+  const [passwordChangeData, setPasswordChangeData] =
+    useState<PasswordChangeFormData>({
+      currentPassword: "",
+      newPassword: "",
+      confirmNewPassword: "",
+    });
+  const [passwordErrors, setPasswordErrors] = useState<
+    Partial<PasswordChangeFormData>
+  >({});
+  const [showPasswordChange, setShowPasswordChange] = useState(false);
 
   // Générer les initiales pour l'avatar fallback
   const getInitials = (name: string) => {
@@ -180,6 +210,18 @@ export function UserProfile() {
     }
   };
 
+  // Gérer les changements du formulaire de changement de mot de passe
+  const handlePasswordInputChange = (
+    field: keyof PasswordChangeFormData,
+    value: string
+  ) => {
+    setPasswordChangeData((prev) => ({ ...prev, [field]: value }));
+    // Effacer l'erreur pour ce champ
+    if (passwordErrors[field]) {
+      setPasswordErrors((prev) => ({ ...prev, [field]: undefined }));
+    }
+  };
+
   // Soumettre le formulaire de profil
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -283,6 +325,79 @@ export function UserProfile() {
     }
   };
 
+  // Soumettre le changement de mot de passe
+  const handlePasswordChangeSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    try {
+      // Créer le schéma avec les traductions
+      const passwordChangeSchema = createPasswordChangeSchema(t);
+      // Valider les données
+      const validatedData = passwordChangeSchema.parse(passwordChangeData);
+      setPasswordErrors({});
+
+      setIsLoading(true);
+
+      // Appeler l'API de changement de mot de passe
+      const response = await fetch("/api/user/password/change", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          currentPassword: validatedData.currentPassword,
+          newPassword: validatedData.newPassword,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || t("failedToChangePassword"));
+      }
+
+      if (result.success) {
+        toast.success(t("passwordChangeSuccess"));
+        setShowPasswordChange(false);
+        setPasswordChangeData({
+          currentPassword: "",
+          newPassword: "",
+          confirmNewPassword: "",
+        });
+      } else {
+        throw new Error(result.error || t("passwordChangeFailed"));
+      }
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        // Erreurs de validation
+        const fieldErrors: Partial<PasswordChangeFormData> = {};
+        error.errors.forEach((err) => {
+          if (err.path[0]) {
+            fieldErrors[err.path[0] as keyof PasswordChangeFormData] =
+              err.message;
+          }
+        });
+        setPasswordErrors(fieldErrors);
+      } else {
+        // Gestion spécifique des erreurs
+        const errorMessage =
+          error instanceof Error ? error.message : String(error);
+
+        if (errorMessage.includes("Current password is incorrect")) {
+          // Erreur de mot de passe incorrect - afficher dans le champ
+          setPasswordErrors({
+            currentPassword: t("currentPasswordIncorrect"),
+          });
+        } else {
+          // Autres erreurs - toast générique
+          toast.error(t("passwordChangeError"));
+        }
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   // Annuler le changement d'email
   const handleCancelEmailChange = async () => {
     try {
@@ -337,15 +452,17 @@ export function UserProfile() {
   };
 
   return (
-    <div className="max-w-sm mx-auto space-y-4">
-      <div>
-        <h1 className="text-xl font-bold tracking-tight">{t("title")}</h1>
-        <p className="text-muted-foreground text-sm">
+    <div className="max-w-4xl mx-auto p-4 space-y-6">
+      <div className="space-y-2">
+        <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
+        <p className="text-muted-foreground">
           {t("accountDescription")}
         </p>
       </div>
 
-      <Card>
+      <div className="grid gap-6 md:grid-cols-2">
+        {/* Carte Informations Personnelles */}
+        <Card className="h-fit">
         <CardHeader className="pb-4">
           <CardTitle className="text-lg">{t("personalInfo")}</CardTitle>
           <CardDescription className="text-sm">
@@ -365,9 +482,9 @@ export function UserProfile() {
                 )}
               </AvatarFallback>
             </Avatar>
-            <div className="text-center space-y-2">
-              <Label className="text-sm block">{t("avatar")}</Label>
-              <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2">
+            <div className="text-center space-y-3">
+                <Label className="text-sm block">{t("avatar")}</Label>
+                <div className="flex flex-col gap-2 sm:flex-row sm:justify-center">
                 <Button
                   type="button"
                   variant="outline"
@@ -519,7 +636,7 @@ export function UserProfile() {
                   <p className="text-xs text-muted-foreground">
                     {t("pendingEmailMessage", { email: pendingEmail })}
                   </p>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-2 sm:flex-row">
                     <Button
                       variant="outline"
                       size="sm"
@@ -600,12 +717,12 @@ export function UserProfile() {
                 </AlertDescription>
               </Alert>
 
-              <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2">
+              <div className="flex flex-col gap-2 sm:flex-row">
                 <Button
                   type="submit"
                   disabled={isLoading}
                   size="sm"
-                  className="h-8 px-3 text-sm flex-1 sm:flex-none"
+                  className="h-8 px-3 text-sm sm:flex-1"
                 >
                   {isLoading ? t("requesting") : t("changeEmail")}
                 </Button>
@@ -619,15 +736,170 @@ export function UserProfile() {
                     setEmailErrors({});
                   }}
                   disabled={isLoading}
-                  className="h-8 px-3 text-sm flex-1 sm:flex-none"
+                  className="h-8 px-3 text-sm sm:flex-1"
                 >
                   {t("cancel")}
                 </Button>
               </div>
             </form>
           )}
+
+          {/* Section Mot de passe */}
+          <Separator className="my-6" />
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <IconLock className="h-4 w-4" />
+              <h3 className="text-lg font-medium">{t("passwordSecurity")}</h3>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              {t("passwordSecurityDescription")}
+            </p>
+            
+            {!showPasswordChange ? (
+              <div className="space-y-2">
+                {hasSocialAuth ? (
+                  <div className="space-y-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      disabled={true}
+                      className="h-8 px-3 text-sm w-full opacity-50 cursor-not-allowed"
+                    >
+                      {t("changePassword")}
+                    </Button>
+                    <p className="text-xs text-muted-foreground">
+                      {t("socialAuthPasswordChangeDisabled")}
+                    </p>
+                  </div>
+                ) : (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setShowPasswordChange(true)}
+                    className="h-8 px-3 text-sm w-full"
+                  >
+                    {t("changePassword")}
+                  </Button>
+                )}
+              </div>
+            ) : (
+              <form onSubmit={handlePasswordChangeSubmit} className="space-y-4">
+                <div className="space-y-3">
+                  <div className="space-y-2">
+                    <Label htmlFor="currentPasswordForChange" className="text-sm">
+                      {t("currentPasswordForChange")}
+                    </Label>
+                    <Input
+                      id="currentPasswordForChange"
+                      type="password"
+                      value={passwordChangeData.currentPassword}
+                      onChange={(e) =>
+                        handlePasswordInputChange(
+                          "currentPassword",
+                          e.target.value
+                        )
+                      }
+                      placeholder={t("currentPasswordPlaceholder")}
+                      disabled={isLoading}
+                      className="h-9"
+                    />
+                    {passwordErrors.currentPassword && (
+                      <p className="text-xs text-red-600">
+                        {passwordErrors.currentPassword}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="newPassword" className="text-sm">
+                      {t("newPassword")}
+                    </Label>
+                    <Input
+                      id="newPassword"
+                      type="password"
+                      value={passwordChangeData.newPassword}
+                      onChange={(e) =>
+                        handlePasswordInputChange("newPassword", e.target.value)
+                      }
+                      placeholder={t("newPasswordPlaceholder")}
+                      disabled={isLoading}
+                      className="h-9"
+                    />
+                    {passwordErrors.newPassword && (
+                      <p className="text-xs text-red-600">
+                        {passwordErrors.newPassword}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="confirmNewPassword" className="text-sm">
+                      {t("confirmNewPassword")}
+                    </Label>
+                    <Input
+                      id="confirmNewPassword"
+                      type="password"
+                      value={passwordChangeData.confirmNewPassword}
+                      onChange={(e) =>
+                        handlePasswordInputChange(
+                          "confirmNewPassword",
+                          e.target.value
+                        )
+                      }
+                      placeholder={t("confirmNewPasswordPlaceholder")}
+                      disabled={isLoading}
+                      className="h-9"
+                    />
+                    {passwordErrors.confirmNewPassword && (
+                      <p className="text-xs text-red-600">
+                        {passwordErrors.confirmNewPassword}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <Alert>
+                  <IconAlertTriangle className="h-4 w-4" />
+                  <AlertDescription className="text-xs">
+                    {t("passwordChangeRequestedMessage")}
+                  </AlertDescription>
+                </Alert>
+
+                <div className="flex flex-col gap-2 sm:flex-row">
+                  <Button
+                    type="submit"
+                    disabled={isLoading}
+                    size="sm"
+                    className="h-8 px-3 text-sm sm:flex-1"
+                  >
+                    {isLoading ? t("requesting") : t("changePassword")}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      setShowPasswordChange(false);
+                      setPasswordChangeData({
+                        currentPassword: "",
+                        newPassword: "",
+                        confirmNewPassword: "",
+                      });
+                      setPasswordErrors({});
+                    }}
+                    disabled={isLoading}
+                    className="h-8 px-3 text-sm sm:flex-1"
+                  >
+                    {t("cancel")}
+                  </Button>
+                </div>
+              </form>
+            )}
+          </div>
         </CardContent>
-      </Card>
+        </Card>
+
+      </div>
     </div>
   );
 }

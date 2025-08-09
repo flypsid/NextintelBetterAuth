@@ -4,20 +4,20 @@ import * as React from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import {
-  IconCamera,
+  IconPhoto,
   IconChartBar,
   IconDashboard,
-  IconDatabase,
-  IconFileAi,
-  IconFileDescription,
-  IconFileWord,
-  IconFolder,
-  IconHelp,
-  IconListDetails,
-  IconReport,
+  IconTrendingUp,
+  IconBulb,
+  IconTarget,
+  IconBell,
   IconSearch,
+  IconHelp,
   IconSettings,
-  IconUsers,
+  IconVideo,
+  IconBrandYoutube,
+  IconBrandTiktok,
+  IconBrandInstagram,
 } from "@tabler/icons-react";
 
 import { NavDocuments } from "@/components/dashboard/nav-documents";
@@ -38,74 +38,86 @@ import {
 const data = {
   navMain: [
     {
-      title: "Dashboard",
+      title: "Analytics Overview",
       url: "/dashboard",
       icon: IconDashboard,
     },
     {
-      title: "Lifecycle",
+      title: "Thumbnail Studio",
       url: "#",
-      icon: IconListDetails,
+      icon: IconPhoto,
     },
     {
-      title: "Analytics",
+      title: "Performance Metrics",
       url: "#",
       icon: IconChartBar,
     },
     {
-      title: "Projects",
+      title: "Trend Analysis",
       url: "#",
-      icon: IconFolder,
+      icon: IconTrendingUp,
     },
     {
-      title: "Team",
+      title: "Content Ideas",
       url: "#",
-      icon: IconUsers,
+      icon: IconBulb,
     },
   ],
   navClouds: [
     {
-      title: "Capture",
-      icon: IconCamera,
+      title: "YouTube",
+      icon: IconBrandYoutube,
       isActive: true,
       url: "#",
       items: [
         {
-          title: "Active Proposals",
+          title: "Channel Analytics",
           url: "#",
         },
         {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Proposal",
-      icon: IconFileDescription,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
+          title: "Video Performance",
           url: "#",
         },
         {
-          title: "Archived",
+          title: "Thumbnail A/B Tests",
           url: "#",
         },
       ],
     },
     {
-      title: "Prompts",
-      icon: IconFileAi,
+      title: "TikTok",
+      icon: IconBrandTiktok,
       url: "#",
       items: [
         {
-          title: "Active Proposals",
+          title: "Trending Hashtags",
           url: "#",
         },
         {
-          title: "Archived",
+          title: "Viral Content",
+          url: "#",
+        },
+        {
+          title: "Engagement Metrics",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Instagram",
+      icon: IconBrandInstagram,
+      url: "#",
+      items: [
+        {
+          title: "Story Analytics",
+          url: "#",
+        },
+        {
+          title: "Reel Performance",
+          url: "#",
+        },
+        {
+          title: "Post Optimization",
           url: "#",
         },
       ],
@@ -130,19 +142,19 @@ const data = {
   ],
   documents: [
     {
-      name: "Data Library",
+      name: "AI Optimizer",
       url: "#",
-      icon: IconDatabase,
+      icon: IconTarget,
     },
     {
-      name: "Reports",
+      name: "Trend Alerts",
       url: "#",
-      icon: IconReport,
+      icon: IconBell,
     },
     {
-      name: "Word Assistant",
+      name: "Video Library",
       url: "#",
-      icon: IconFileWord,
+      icon: IconVideo,
     },
   ],
 };

@@ -1,5 +1,7 @@
 ## Tech Stack & Architecture Principles - NextintelBetterAuth
 
+**NextintelBetterAuth** est un outil d'analyse IA moderne pour YouTube et les réseaux sociaux, construit avec Next.js 15, TypeScript, et Better Auth. Le projet implémente une architecture de sécurité multicouche avec validation Zod et internationalisation complète pour aider les créateurs de contenu à optimiser leurs performances.
+
 ### 🧱 Core Technologies (Projet Actuel)
 
 - **Language**: TypeScript (`strict` mode enabled — avoid `any`, prefer `unknown` / `never`)
@@ -31,8 +33,13 @@
 - **Email Provider**: Resend pour les emails transactionnels
 - **Templates**: React Email pour les templates d'emails
 - **Internationalisation**: Emails bilingues (FR/EN) avec détection automatique
-- **Types**: Vérification d'email et récupération de mot de passe
+- **Types d'emails**:
+  - Vérification d'email (inscription)
+  - Récupération de mot de passe
+  - Changement d'email (vérification + notification)
+  - Notification de changement de mot de passe
 - **Sécurité**: Tokens avec expiration et validation Better Auth
+- **Logo**: Intégration du logo NextintelBetterAuth dans tous les templates
 
 ### 📥 Validation & Schema Definition (NextintelBetterAuth)
 
@@ -63,6 +70,16 @@ export default async function Page() {
 // Client Components avec validation
 const loginSchema = createLoginSchema(t);
 ```
+
+### 👤 Gestion de Profil Utilisateur (NextintelBetterAuth)
+
+- **Profil complet**: Nom, email, photo de profil
+- **Upload d'avatar**: Gestion sécurisée des images de profil
+- **Changement d'email**: Processus de vérification en deux étapes avec notification
+- **Changement de mot de passe**: Avec notification de sécurité automatique
+- **Validation en temps réel**: Schémas Zod pour tous les formulaires
+- **Interface responsive**: Optimisée pour mobile et desktop
+- **Gestion d'état**: Feedback utilisateur avec notifications toast
 
 ### 📊 Data & State Management (NextintelBetterAuth)
 
@@ -350,6 +367,9 @@ Tous les endpoints Better Auth gérés automatiquement :
 BETTER_AUTH_SECRET=your-32-char-secret
 BETTER_AUTH_URL=http://localhost:3000
 
+# Application
+NEXT_PUBLIC_URL=http://localhost:3000
+
 # Database
 DATABASE_URL=postgresql://user:pass@host/db
 
@@ -373,9 +393,12 @@ DISCORD_CLIENT_SECRET=your_discord_client_secret
 - ✅ **Performance**: Middleware optimisé
 - ✅ **Email Verification**: Vérification d'email obligatoire avec connexion automatique
 - ✅ **Password Reset**: Récupération de mot de passe avec emails bilingues
+- ✅ **Email Change**: Changement d'email sécurisé avec double vérification
+- ✅ **Security Notifications**: Notifications automatiques pour changements de compte
 - ✅ **Social Auth**: Fournisseurs Google et Discord configurés
 - ✅ **Locale Detection**: Détection automatique de la langue pour les emails
-- ✅ **Email Templates**: Templates Resend bilingues (FR/EN)
+- ✅ **Email Templates**: Templates Resend bilingues (FR/EN) avec logo NextintelBetterAuth
+- ✅ **Profile Management**: Gestion complète du profil utilisateur avec upload d'avatar
 
 ### 📧 Système d'Email (Resend)
 
@@ -385,14 +408,23 @@ DISCORD_CLIENT_SECRET=your_discord_client_secret
 
 - **Provider**: Resend pour l'envoi d'emails transactionnels
 - **Templates**: Emails bilingues (FR/EN) avec détection automatique de locale
-- **Types d'emails**: Vérification d'email et récupération de mot de passe
+- **Types d'emails**:
+  - Vérification d'email (inscription)
+  - Récupération de mot de passe
+  - Changement d'email (vérification + notification à l'ancienne adresse)
+  - Notification de changement de mot de passe
 - **Sécurité**: Validation des tokens avec expiration (1 heure)
 - **UX**: Connexion automatique après vérification d'email
+- **Design**: Logo NextintelBetterAuth intégré dans tous les templates
+- **URLs**: Utilisation de NEXT_PUBLIC_URL pour les liens de support
 
 **Templates disponibles**:
 
-- `src/components/emails/VerificationEmail.tsx` - Email de vérification
-- `src/components/emails/ForgotPasswordEmail.tsx` - Email de récupération
+- `src/components/emails/EmailVerificationEmail.tsx` - Email de vérification d'inscription
+- `src/components/emails/ForgotPasswordEmail.tsx` - Email de récupération de mot de passe
+- `src/components/emails/EmailChangeVerificationEmail.tsx` - Email de vérification de changement d'email
+- `src/components/emails/EmailChangeNotificationEmail.tsx` - Notification de changement d'email
+- `src/components/emails/PasswordChangeNotificationEmail.tsx` - Notification de changement de mot de passe
 
 **Configuration**:
 

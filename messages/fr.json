@@ -1,6 +1,65 @@
 {
   "HomePage": {},
 
+  "NextintelBetterAuth": {
+    "features": {
+      "aiThumbnails": {
+        "title": "Générateur de Miniatures IA",
+        "description": "Créez des miniatures à fort taux de clic en quelques secondes avec des suggestions de design IA."
+      },
+      "thumbnailExplorer": {
+        "title": "Explorateur de Miniatures",
+        "description": "Découvrez les designs les plus performants des créateurs à succès de votre niche."
+      },
+      "outlierDetection": {
+        "title": "Détection d'Anomalies",
+        "description": "Trouvez des vidéos inattendument virales et analysez ce qui les a rendues populaires."
+      },
+      "aiScriptGenerator": {
+        "title": "Générateur de Scripts et Idées IA",
+        "description": "Obtenez des suggestions de contenu viral et de scripts adaptés à votre audience."
+      },
+      "trendAlerts": {
+        "title": "Alertes Tendances en Temps Réel",
+        "description": "Restez en avance avec les tendances de mots-clés et sujets émergents de votre secteur."
+      },
+      "performanceOptimizer": {
+        "title": "Optimiseur de Performance",
+        "description": "Optimisation IA des titres, tags et métadonnées pour une portée maximale."
+      }
+    },
+    "dashboard": {
+      "title": "Tableau de bord",
+      "description": "Surveillez les performances et analyses de votre contenu",
+      "performanceOverview": "Aperçu des performances",
+      "performanceDescription": "Suivez vos métriques de contenu et l'engagement sur toutes les plateformes",
+      "recentVideos": "Vidéos récentes",
+      "recentVideosDescription": "Les performances de votre dernier contenu sur toutes les plateformes",
+      "videoTitle": "Titre",
+      "platform": "Plateforme",
+      "views": "Vues",
+      "engagement": "Engagement",
+      "ctr": "CTR",
+      "revenue": "Revenus",
+      "status": "Statut",
+      "actions": "Actions",
+      "overview": "Vue d'Ensemble Analytics",
+      "thumbnails": "Studio Miniatures",
+      "trends": "Analyse des Tendances",
+      "scripts": "Idées de Contenu",
+      "performance": "Métriques de Performance",
+      "settings": "Paramètres"
+    },
+    "analytics": {
+      "views": "Vues",
+      "engagement": "Taux d'Engagement",
+      "ctr": "Taux de Clic",
+      "retention": "Rétention d'Audience",
+      "subscribers": "Abonnés",
+      "revenue": "Revenus"
+    }
+  },
+
   "Navbar": {
     "about": "À propos",
     "features": "Fonctionnalités",
@@ -14,12 +73,12 @@
     "loggingOut": "Déconnexion..."
   },
   "HeroSection": {
-    "introducing": "Découvrez NextintelBetterAuth boilerplate",
-    "title": "Finance intelligente, facturation intuitive, budget optimisé",
-    "subtitle": "Automatisez vos processus financiers et concentrez-vous sur l'essentiel, planifiez vos projets et voyez votre patrimoine évoluer en temps réel.",
-    "getStarted": "Commencer",
+    "introducing": "Découvrez NextintelBetterAuth",
+    "title": "Outil d'Analyse IA pour YouTube et Réseaux Sociaux",
+    "subtitle": "Boostez vos performances de contenu avec des insights IA. Des miniatures virales aux mots-clés tendance, dominez YouTube, TikTok et Instagram avec des stratégies data-driven.",
+    "getStarted": "Commencer l'Analyse",
     "requestDemo": "Demander une démo",
-    "meetCustomers": "Rencontrez nos clients"
+    "meetCustomers": "Rencontrez nos Créateurs"
   },
   "Footer": {
     "rightsReserved": "Tous droits réservés"
@@ -101,7 +160,27 @@
       "emailChangeFailed": "Échec du changement d'email",
       "failedToCancelEmailChange": "Échec de l'annulation du changement d'email",
       "failedToResendVerification": "Échec du renvoi de la vérification",
-      "socialAuthEmailChangeDisabled": "Le changement d'email n'est pas disponible pour les comptes connectés via Google ou Discord."
+      "socialAuthEmailChangeDisabled": "Le changement d'email n'est pas disponible pour les comptes connectés via Google ou Discord.",
+      "changePassword": "Changer le mot de passe",
+      "currentPasswordForChange": "Mot de passe actuel",
+      "newPassword": "Nouveau mot de passe",
+      "confirmNewPassword": "Confirmer le nouveau mot de passe",
+      "newPasswordPlaceholder": "Votre nouveau mot de passe",
+      "confirmNewPasswordPlaceholder": "Confirmez votre nouveau mot de passe",
+      "passwordChangeSuccess": "Mot de passe modifié avec succès",
+      "passwordChangeError": "Erreur lors du changement de mot de passe",
+      "passwordsDoNotMatch": "Les mots de passe ne correspondent pas",
+      "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères",
+      "currentPasswordRequired": "Le mot de passe actuel est requis",
+      "confirmPasswordRequired": "Veuillez confirmer votre nouveau mot de passe",
+      "currentPasswordIncorrect": "Le mot de passe actuel est incorrect",
+      "passwordChangeRequested": "Changement de mot de passe demandé",
+      "passwordChangeRequestedMessage": "Votre mot de passe sera modifié après confirmation. Assurez-vous de vous souvenir de votre nouveau mot de passe.",
+      "failedToChangePassword": "Échec du changement de mot de passe",
+      "passwordChangeFailed": "Échec du changement de mot de passe",
+      "socialAuthPasswordChangeDisabled": "Le changement de mot de passe n'est pas disponible pour les comptes connectés via Google ou Discord.",
+      "passwordSecurity": "Sécurité du mot de passe",
+      "passwordSecurityDescription": "Modifiez votre mot de passe pour sécuriser votre compte."
     },
     "usermenu": {
       "account": "Compte",
@@ -159,7 +238,6 @@
       "emailInvalid": "Adresse e-mail invalide",
       "passwordMinLength": "Le mot de passe doit comporter au moins 8 caractères",
       "passwordsNoMatch": "Les mots de passe ne correspondent pas",
-      "passwordsDoNotMatch": "Les mots de passe ne correspondent pas",
       "passwordRequired": "Le mot de passe est requis"
     },
     "orContinueWith": "Ou continuer avec",
@@ -210,6 +288,8 @@
     "emailChangeVerifiedSuccess": "Votre nouvelle adresse email a été vérifiée et activée. Vous pouvez maintenant utiliser votre nouvelle adresse pour vous connecter.",
     "emailChangeExpiredMessage": "Votre lien de vérification de changement d'email a expiré. Veuillez demander un nouveau changement depuis votre profil.",
     "emailChangeFailedMessage": "Une erreur s'est produite lors de la vérification de votre changement d'email. Veuillez réessayer ou contacter le support.",
-    "goToProfile": "Aller au profil"
+    "goToProfile": "Aller au profil",
+    "passwordChangeNotificationSent": "Un email de notification a été envoyé pour confirmer votre changement de mot de passe.",
+    "passwordChangeSecurityNotice": "Pour votre sécurité, nous vous avons envoyé un email de notification concernant ce changement de mot de passe."
   }
 }

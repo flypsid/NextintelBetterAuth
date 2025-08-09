@@ -1,6 +1,65 @@
 {
   "HomePage": {},
 
+  "NextintelBetterAuth": {
+    "features": {
+      "aiThumbnails": {
+        "title": "AI Thumbnail Generator",
+        "description": "Create high-CTR thumbnails in seconds with AI-powered design suggestions."
+      },
+      "thumbnailExplorer": {
+        "title": "Thumbnail Explorer",
+        "description": "Discover top-performing designs from successful creators in your niche."
+      },
+      "outlierDetection": {
+        "title": "Outlier Detection",
+        "description": "Find unexpectedly viral videos and analyze what made them successful."
+      },
+      "aiScriptGenerator": {
+        "title": "AI Script & Idea Generator",
+        "description": "Get viral content prompts and script suggestions tailored to your audience."
+      },
+      "trendAlerts": {
+        "title": "Real-Time Trend Alerts",
+        "description": "Stay ahead with keyword trends and emerging topics in your industry."
+      },
+      "performanceOptimizer": {
+        "title": "Performance Optimizer",
+        "description": "AI-powered title, tag & metadata optimization for maximum reach."
+      }
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "Monitor your content performance and analytics",
+      "overview": "Analytics Overview",
+      "thumbnails": "Thumbnail Studio",
+      "trends": "Trend Analysis",
+      "scripts": "Content Ideas",
+      "performance": "Performance Metrics",
+      "settings": "Settings",
+      "performanceOverview": "Performance Overview",
+      "performanceDescription": "Track your content metrics and engagement across all platforms",
+      "recentVideos": "Recent Videos",
+      "recentVideosDescription": "Your latest content performance across all platforms",
+      "videoTitle": "Title",
+      "platform": "Platform",
+      "views": "Views",
+      "engagement": "Engagement",
+      "ctr": "CTR",
+      "revenue": "Revenue",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "analytics": {
+      "views": "Views",
+      "engagement": "Engagement Rate",
+      "ctr": "Click-Through Rate",
+      "retention": "Audience Retention",
+      "subscribers": "Subscribers",
+      "revenue": "Revenue"
+    }
+  },
+
   "Navbar": {
     "about": "About",
     "features": "Features",
@@ -14,12 +73,12 @@
     "dashboard": "Dashboard"
   },
   "HeroSection": {
-    "introducing": "Introducing NextintelBetterAuth Boilerplate",
-    "title": "Smart Finance Tracking, Invoicing & Money Growth",
-    "subtitle": "Your money, simplified. seamless invoicing, smart budgeting, expense tracking, and wealth growth. Finance made simple, for today and tomorrow.",
-    "getStarted": "Get Started",
+    "introducing": "Introducing NextintelBetterAuth",
+    "title": "AI-Powered YouTube & Social Media Analytics Tool",
+    "subtitle": "Boost your content performance with AI-driven insights. From viral thumbnails to trending keywords, dominate YouTube, TikTok, and Instagram with data-driven strategies.",
+    "getStarted": "Start Analyzing",
     "requestDemo": "Request a demo",
-    "meetCustomers": "Meet Our Customers"
+    "meetCustomers": "Meet Our Creators"
   },
   "Footer": {
     "rightsReserved": "All rights reserved"
@@ -102,7 +161,27 @@
       "emailChangeFailed": "Email change failed",
       "failedToCancelEmailChange": "Failed to cancel email change",
       "failedToResendVerification": "Failed to resend verification",
-      "socialAuthEmailChangeDisabled": "Email change is not available for accounts connected via Google or Discord."
+      "socialAuthEmailChangeDisabled": "Email change is not available for accounts connected via Google or Discord.",
+      "changePassword": "Change Password",
+      "currentPasswordForChange": "Current Password",
+      "newPassword": "New Password",
+      "confirmNewPassword": "Confirm New Password",
+      "newPasswordPlaceholder": "Your new password",
+      "confirmNewPasswordPlaceholder": "Confirm your new password",
+      "passwordChangeSuccess": "Password changed successfully",
+      "passwordChangeError": "Error changing password",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "passwordTooShort": "Password must be at least 8 characters long",
+      "currentPasswordRequired": "Current password is required",
+      "confirmPasswordRequired": "Please confirm your new password",
+      "currentPasswordIncorrect": "Current password is incorrect",
+      "passwordChangeRequested": "Password Change Requested",
+      "passwordChangeRequestedMessage": "Your password will be changed after confirmation. Make sure to remember your new password.",
+      "failedToChangePassword": "Failed to change password",
+      "passwordChangeFailed": "Password change failed",
+      "socialAuthPasswordChangeDisabled": "Password change is not available for accounts connected via Google or Discord.",
+      "passwordSecurity": "Password Security",
+      "passwordSecurityDescription": "Change your password to secure your account."
     },
     "usermenu": {
       "account": "Account",
@@ -160,7 +239,6 @@
       "emailInvalid": "Invalid email address",
       "passwordMinLength": "Password must be at least 8 characters",
       "passwordsNoMatch": "Passwords don't match",
-      "passwordsDoNotMatch": "Passwords do not match",
       "passwordRequired": "Password is required"
     },
     "orContinueWith": "Or continue with",
@@ -211,6 +289,8 @@
     "emailChangeVerifiedSuccess": "Your new email address has been verified and activated. You can now use your new address to sign in.",
     "emailChangeExpiredMessage": "Your email change verification link has expired. Please request a new change from your profile.",
     "emailChangeFailedMessage": "An error occurred while verifying your email change. Please try again or contact support.",
-    "goToProfile": "Go to Profile"
+    "goToProfile": "Go to Profile",
+    "passwordChangeNotificationSent": "A notification email has been sent to confirm your password change.",
+    "passwordChangeSecurityNotice": "For your security, we've sent you an email notification about this password change."
   }
 }

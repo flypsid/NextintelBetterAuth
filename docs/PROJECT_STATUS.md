@@ -2,7 +2,7 @@
 
 ## Vue d'ensemble
 
-NextintelBetterAuth est une application web moderne de gestion financière construite avec Next.js 15, TypeScript, et Better Auth. Le projet implémente une architecture de sécurité multicouche avec validation Zod et internationalisation complète.
+NextintelBetterAuth est un outil d'analyse IA moderne pour YouTube et les réseaux sociaux, construit avec Next.js 15, TypeScript, et Better Auth. Le projet implémente une architecture de sécurité multicouche avec validation Zod et internationalisation complète pour aider les créateurs de contenu à optimiser leurs performances.
 
 ## 🚀 Fonctionnalités Principales
 
@@ -281,17 +281,18 @@ npx drizzle-kit migrate
 
 ### Moyen Terme
 
-- [ ] Interface de gestion financière
-- [ ] Tableaux de bord interactifs
-- [ ] Import/export de données
+- [ ] Interface d'analyse de contenu YouTube
+- [ ] Tableaux de bord d'analytics interactifs
+- [ ] Génération de miniatures IA
+- [ ] Analyse des tendances et mots-clés
 - [ ] Notifications en temps réel
 
 ### Long Terme
 
 - [ ] Application mobile (React Native)
-- [ ] API publique
-- [ ] Intégrations bancaires
-- [ ] Intelligence artificielle
+- [ ] API publique pour créateurs
+- [ ] Intégrations TikTok et Instagram
+- [ ] IA avancée pour optimisation de contenu
 
 ## 🏆 Points Forts du Projet
 
