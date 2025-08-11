@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { type Icon } from "@tabler/icons-react"
+import { useTranslations } from "next-intl"
 
 import {
   SidebarGroup,
@@ -21,11 +22,19 @@ export function NavSecondary({
     icon: Icon
   }[]
 } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
+  const t = useTranslations("Dashboard.sidebar");
+  
+  // Traduire les titres des éléments
+  const translatedItems = items.map(item => ({
+    ...item,
+    title: t(item.title.toLowerCase().replace(/\s+/g, '')) || item.title
+  }));
+
   return (
     <SidebarGroup {...props}>
       <SidebarGroupContent>
         <SidebarMenu>
-          {items.map((item) => (
+          {translatedItems.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild>
                 <a href={item.url}>

@@ -1,65 +1,4 @@
 {
-  "HomePage": {},
-
-  "NextintelBetterAuth": {
-    "features": {
-      "aiThumbnails": {
-        "title": "AI Thumbnail Generator",
-        "description": "Create high-CTR thumbnails in seconds with AI-powered design suggestions."
-      },
-      "thumbnailExplorer": {
-        "title": "Thumbnail Explorer",
-        "description": "Discover top-performing designs from successful creators in your niche."
-      },
-      "outlierDetection": {
-        "title": "Outlier Detection",
-        "description": "Find unexpectedly viral videos and analyze what made them successful."
-      },
-      "aiScriptGenerator": {
-        "title": "AI Script & Idea Generator",
-        "description": "Get viral content prompts and script suggestions tailored to your audience."
-      },
-      "trendAlerts": {
-        "title": "Real-Time Trend Alerts",
-        "description": "Stay ahead with keyword trends and emerging topics in your industry."
-      },
-      "performanceOptimizer": {
-        "title": "Performance Optimizer",
-        "description": "AI-powered title, tag & metadata optimization for maximum reach."
-      }
-    },
-    "dashboard": {
-      "title": "Dashboard",
-      "description": "Monitor your content performance and analytics",
-      "overview": "Analytics Overview",
-      "thumbnails": "Thumbnail Studio",
-      "trends": "Trend Analysis",
-      "scripts": "Content Ideas",
-      "performance": "Performance Metrics",
-      "settings": "Settings",
-      "performanceOverview": "Performance Overview",
-      "performanceDescription": "Track your content metrics and engagement across all platforms",
-      "recentVideos": "Recent Videos",
-      "recentVideosDescription": "Your latest content performance across all platforms",
-      "videoTitle": "Title",
-      "platform": "Platform",
-      "views": "Views",
-      "engagement": "Engagement",
-      "ctr": "CTR",
-      "revenue": "Revenue",
-      "status": "Status",
-      "actions": "Actions"
-    },
-    "analytics": {
-      "views": "Views",
-      "engagement": "Engagement Rate",
-      "ctr": "Click-Through Rate",
-      "retention": "Audience Retention",
-      "subscribers": "Subscribers",
-      "revenue": "Revenue"
-    }
-  },
-
   "Navbar": {
     "about": "About",
     "features": "Features",
@@ -73,130 +12,17 @@
     "dashboard": "Dashboard"
   },
   "HeroSection": {
-    "introducing": "Introducing NextintelBetterAuth",
-    "title": "AI-Powered YouTube & Social Media Analytics Tool",
-    "subtitle": "Boost your content performance with AI-driven insights. From viral thumbnails to trending keywords, dominate YouTube, TikTok, and Instagram with data-driven strategies.",
-    "getStarted": "Start Analyzing",
-    "requestDemo": "Request a demo",
-    "meetCustomers": "Meet Our Creators"
+    "announcement": {
+      "badge": "New",
+      "text": "AI Idea, Script & Video Generator"
+    },
+    "title": "NextintelBetterAuth | BoilerPlate",
+    "subtitle": "A boilerplate for Next.js applications with authentication, internationalization, and more.",
+    "getStarted": "Start Creating"
   },
   "Footer": {
     "rightsReserved": "All rights reserved"
   },
-
-  "ContactPage": {
-    "title": "Contact us",
-    "description": "Feel free to reach out using the form below.",
-    "form": {
-      "name": "Name",
-      "namePlaceholder": "Your name",
-      "email": "Email",
-      "emailPlaceholder": "Your email address",
-      "message": "Message",
-      "messagePlaceholder": "Type your message...",
-      "submit": "Send message",
-      "errors": {
-        "name": {
-          "required": "Name is required.",
-          "min": "Name must be at least 2 characters."
-        },
-        "email": {
-          "required": "Email is required.",
-          "email": "Invalid email address."
-        },
-        "message": {
-          "required": "Message is required.",
-          "min": "Message must be at least 5 characters."
-        }
-      }
-    }
-  },
-
-  "Dashboard": {
-    "body": {},
-    "nav": {},
-    "profile": {
-      "title": "User Profile",
-      "personalInfo": "Personal Information",
-      "personalInfoDescription": "Update your personal information and profile picture.",
-      "name": "Name",
-      "email": "Email Address",
-      "avatar": "Profile Picture",
-      "changeAvatar": "Change Picture",
-      "removeAvatar": "Remove Picture",
-      "save": "Save Changes",
-      "cancel": "Cancel",
-      "updateSuccess": "Profile updated successfully",
-      "updateError": "Error updating profile",
-      "uploadError": "Error uploading image",
-      "namePlaceholder": "Your full name",
-      "emailPlaceholder": "your@email.com",
-      "changeEmail": "Change Email Address",
-      "newEmail": "New Email Address",
-      "newEmailPlaceholder": "new@email.com",
-      "currentPassword": "Current Password",
-      "currentPasswordPlaceholder": "Your current password",
-      "emailChangeRequested": "Email Change Requested",
-      "emailChangeRequestedMessage": "A verification email will be sent to your new address. Please check your inbox and click the link to confirm the change.",
-      "emailChangeError": "Error changing email",
-      "pendingEmailChange": "Pending Email Change",
-      "pendingEmailMessage": "A change to {email} is pending verification.",
-      "cancelEmailChange": "Cancel Change",
-      "resendVerificationEmail": "Resend Verification Email",
-      "emailChangeVerificationSent": "Verification email resent",
-      "emailChangeCancelled": "Email change cancelled",
-      "currentEmail": "Current Email",
-      "emailDescription": "Manage your email address securely.",
-      "saving": "Saving...",
-      "requesting": "Requesting...",
-      "avatarUpdatedSuccess": "Avatar updated successfully",
-      "avatarRemovedSuccess": "Avatar removed successfully",
-      "avatarRemoveError": "Error removing avatar",
-      "emailChangeCancelError": "Error cancelling email change",
-      "accountDescription": "Manage your account settings and preferences.",
-      "emailResendError": "Error resending verification",
-      "failedToUpdateProfile": "Failed to update profile",
-      "updateFailed": "Update failed",
-      "failedToRequestEmailChange": "Failed to request email change",
-      "emailChangeFailed": "Email change failed",
-      "failedToCancelEmailChange": "Failed to cancel email change",
-      "failedToResendVerification": "Failed to resend verification",
-      "socialAuthEmailChangeDisabled": "Email change is not available for accounts connected via Google or Discord.",
-      "changePassword": "Change Password",
-      "currentPasswordForChange": "Current Password",
-      "newPassword": "New Password",
-      "confirmNewPassword": "Confirm New Password",
-      "newPasswordPlaceholder": "Your new password",
-      "confirmNewPasswordPlaceholder": "Confirm your new password",
-      "passwordChangeSuccess": "Password changed successfully",
-      "passwordChangeError": "Error changing password",
-      "passwordsDoNotMatch": "Passwords do not match",
-      "passwordTooShort": "Password must be at least 8 characters long",
-      "currentPasswordRequired": "Current password is required",
-      "confirmPasswordRequired": "Please confirm your new password",
-      "currentPasswordIncorrect": "Current password is incorrect",
-      "passwordChangeRequested": "Password Change Requested",
-      "passwordChangeRequestedMessage": "Your password will be changed after confirmation. Make sure to remember your new password.",
-      "failedToChangePassword": "Failed to change password",
-      "passwordChangeFailed": "Password change failed",
-      "socialAuthPasswordChangeDisabled": "Password change is not available for accounts connected via Google or Discord.",
-      "passwordSecurity": "Password Security",
-      "passwordSecurityDescription": "Change your password to secure your account."
-    },
-    "usermenu": {
-      "account": "Account",
-      "billing": "Billing",
-      "notifications": "Notifications",
-      "logOut": "Log out"
-    },
-    "notifications": {
-      "title": "Notifications",
-      "noNotifications": "No notifications",
-      "newMessage": "New message received",
-      "updateAvailable": "Update available"
-    }
-  },
-
   "Auth": {
     "loginTitle": "Sign In to Your Account",
     "loginWelcome": "Welcome back! Please sign in to continue",
@@ -292,5 +118,136 @@
     "goToProfile": "Go to Profile",
     "passwordChangeNotificationSent": "A notification email has been sent to confirm your password change.",
     "passwordChangeSecurityNotice": "For your security, we've sent you an email notification about this password change."
+  },
+
+  "ContactPage": {
+    "title": "Contact us",
+    "description": "Feel free to reach out using the form below.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "Your email address",
+      "message": "Message",
+      "messagePlaceholder": "Type your message...",
+      "submit": "Send message",
+      "errors": {
+        "name": {
+          "required": "Name is required.",
+          "min": "Name must be at least 2 characters."
+        },
+        "email": {
+          "required": "Email is required.",
+          "email": "Invalid email address."
+        },
+        "message": {
+          "required": "Message is required.",
+          "min": "Message must be at least 5 characters."
+        }
+      }
+    }
+  },
+  "Dashboard": {
+    "header": {
+      "title": "Dashboard"
+    },
+    "sidebar": {
+      "overview": "Overview",
+      "thumbnailstudio": "Thumbnail Studio",
+      "performancemetrics": "Performance Metrics",
+      "trendanalysis": "Trend Analysis",
+      "contentideas": "Content Ideas",
+      "documentation": "Documentation",
+      "open": "Open",
+      "share": "Share",
+      "aioptimizer": "AI Optimizer",
+      "trendalerts": "Trend Alerts",
+      "videolibrary": "Video Library",
+      "more": "More",
+      "settings": "Settings",
+      "gethelp": "Get Help",
+      "search": "Search"
+    },
+    "overview": {},
+    "usermenu": {
+      "account": "Account",
+      "billing": "Billing",
+      "notifications": "Notifications",
+      "logOut": "Log out"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "noNotifications": "No notifications",
+      "newMessage": "New message received",
+      "updateAvailable": "Update available"
+    },
+    "profile": {
+      "title": "User Profile",
+      "personalInfo": "Personal Information",
+      "personalInfoDescription": "Update your personal information and profile picture.",
+      "name": "Name",
+      "email": "Email Address",
+      "avatar": "Profile Picture",
+      "changeAvatar": "Change Picture",
+      "removeAvatar": "Remove Picture",
+      "save": "Save Changes",
+      "cancel": "Cancel",
+      "updateSuccess": "Profile updated successfully",
+      "updateError": "Error updating profile",
+      "uploadError": "Error uploading image",
+      "namePlaceholder": "Your full name",
+      "emailPlaceholder": "your@email.com",
+      "changeEmail": "Change Email Address",
+      "newEmail": "New Email Address",
+      "newEmailPlaceholder": "new@email.com",
+      "currentPassword": "Current Password",
+      "currentPasswordPlaceholder": "Your current password",
+      "emailChangeRequested": "Email Change Requested",
+      "emailChangeRequestedMessage": "A verification email will be sent to your new address. Please check your inbox and click the link to confirm the change.",
+      "emailChangeError": "Error changing email",
+      "pendingEmailChange": "Pending Email Change",
+      "pendingEmailMessage": "A change to {email} is pending verification.",
+      "cancelEmailChange": "Cancel Change",
+      "resendVerificationEmail": "Resend Verification Email",
+      "emailChangeVerificationSent": "Verification email resent",
+      "emailChangeCancelled": "Email change cancelled",
+      "currentEmail": "Current Email",
+      "emailDescription": "Manage your email address securely.",
+      "saving": "Saving...",
+      "requesting": "Requesting...",
+      "avatarUpdatedSuccess": "Avatar updated successfully",
+      "avatarRemovedSuccess": "Avatar removed successfully",
+      "avatarRemoveError": "Error removing avatar",
+      "emailChangeCancelError": "Error cancelling email change",
+      "accountDescription": "Manage your account settings and preferences.",
+      "emailResendError": "Error resending verification",
+      "failedToUpdateProfile": "Failed to update profile",
+      "updateFailed": "Update failed",
+      "failedToRequestEmailChange": "Failed to request email change",
+      "emailChangeFailed": "Email change failed",
+      "failedToCancelEmailChange": "Failed to cancel email change",
+      "failedToResendVerification": "Failed to resend verification",
+      "socialAuthEmailChangeDisabled": "Email change is not available for accounts connected via Google or Discord.",
+      "changePassword": "Change Password",
+      "currentPasswordForChange": "Current Password",
+      "newPassword": "New Password",
+      "confirmNewPassword": "Confirm New Password",
+      "newPasswordPlaceholder": "Your new password",
+      "confirmNewPasswordPlaceholder": "Confirm your new password",
+      "passwordChangeSuccess": "Password changed successfully",
+      "passwordChangeError": "Error changing password",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "passwordTooShort": "Password must be at least 8 characters long",
+      "currentPasswordRequired": "Current password is required",
+      "confirmPasswordRequired": "Please confirm your new password",
+      "currentPasswordIncorrect": "Current password is incorrect",
+      "passwordChangeRequested": "Password Change Requested",
+      "passwordChangeRequestedMessage": "Your password will be changed after confirmation. Make sure to remember your new password.",
+      "failedToChangePassword": "Failed to change password",
+      "passwordChangeFailed": "Password change failed",
+      "socialAuthPasswordChangeDisabled": "Password change is not available for accounts connected via Google or Discord.",
+      "passwordSecurity": "Password Security",
+      "passwordSecurityDescription": "Change your password to secure your account."
+    }
   }
 }

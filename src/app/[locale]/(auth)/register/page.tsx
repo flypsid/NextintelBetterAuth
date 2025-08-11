@@ -39,8 +39,8 @@ export default function RegisterPage() {
               <Image
                 src="/images/logo.png"
                 alt="NextintelBetterAuth Logo"
-                width={40}
-                height={40}
+                width={58}
+                height={58}
                 className="mx-auto mb-2"
                 priority
               />

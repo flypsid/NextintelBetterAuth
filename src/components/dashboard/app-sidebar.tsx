@@ -15,9 +15,6 @@ import {
   IconHelp,
   IconSettings,
   IconVideo,
-  IconBrandYoutube,
-  IconBrandTiktok,
-  IconBrandInstagram,
 } from "@tabler/icons-react";
 
 import { NavDocuments } from "@/components/dashboard/nav-documents";
@@ -38,7 +35,7 @@ import {
 const data = {
   navMain: [
     {
-      title: "Analytics Overview",
+      title: "Overview",
       url: "/dashboard",
       icon: IconDashboard,
     },
@@ -63,66 +60,7 @@ const data = {
       icon: IconBulb,
     },
   ],
-  navClouds: [
-    {
-      title: "YouTube",
-      icon: IconBrandYoutube,
-      isActive: true,
-      url: "#",
-      items: [
-        {
-          title: "Channel Analytics",
-          url: "#",
-        },
-        {
-          title: "Video Performance",
-          url: "#",
-        },
-        {
-          title: "Thumbnail A/B Tests",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "TikTok",
-      icon: IconBrandTiktok,
-      url: "#",
-      items: [
-        {
-          title: "Trending Hashtags",
-          url: "#",
-        },
-        {
-          title: "Viral Content",
-          url: "#",
-        },
-        {
-          title: "Engagement Metrics",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Instagram",
-      icon: IconBrandInstagram,
-      url: "#",
-      items: [
-        {
-          title: "Story Analytics",
-          url: "#",
-        },
-        {
-          title: "Reel Performance",
-          url: "#",
-        },
-        {
-          title: "Post Optimization",
-          url: "#",
-        },
-      ],
-    },
-  ],
+
   navSecondary: [
     {
       title: "Settings",

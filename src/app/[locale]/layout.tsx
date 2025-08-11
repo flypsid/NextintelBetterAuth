@@ -18,10 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title:
-    "NextintelBetterAuth | AI-Powered YouTube & Social Media Analytics Tool",
+  title: "NextintelBetterAuth | BoilerPlate",
   description:
-    "AI-Powered YouTube & Social Media Analytics Tool to help you understand your audience, optimize your content, and grow your business.",
+    "A boilerplate for Next.js applications with authentication, internationalization, and more.",
   icons: {
     icon: "/images/favicon.ico",
   },

@@ -4,15 +4,14 @@ import {
   IconDots,
   IconFolder,
   IconShare3,
-  IconTrash,
   type Icon,
 } from "@tabler/icons-react";
+import { useTranslations } from "next-intl";
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -35,12 +34,19 @@ export function NavDocuments({
   }[];
 }) {
   const { isMobile } = useSidebar();
+  const t = useTranslations("Dashboard.sidebar");
+
+  // Traduire les noms des éléments
+  const translatedItems = items.map((item) => ({
+    ...item,
+    name: t(item.name.toLowerCase().replace(/\s+/g, "")) || item.name,
+  }));
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Documents</SidebarGroupLabel>
+      <SidebarGroupLabel>{t("documentation")}</SidebarGroupLabel>
       <SidebarMenu>
-        {items.map((item) => (
+        {translatedItems.map((item) => (
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton asChild>
               <a href={item.url}>
@@ -65,16 +71,11 @@ export function NavDocuments({
               >
                 <DropdownMenuItem>
                   <IconFolder />
-                  <span>Open</span>
+                  <span>{t("open")}</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <IconShare3 />
-                  <span>Share</span>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive">
-                  <IconTrash />
-                  <span>Delete</span>
+                  <span>{t("share")}</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -83,7 +84,7 @@ export function NavDocuments({
         <SidebarMenuItem>
           <SidebarMenuButton className="text-sidebar-foreground/70">
             <IconDots className="text-sidebar-foreground/70" />
-            <span>More</span>
+            <span>{t("more")}</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>

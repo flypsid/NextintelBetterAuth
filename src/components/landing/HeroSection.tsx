@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { AnimatedGroup } from "@/components/ui/AnimatedGroup";
 import { Variants } from "framer-motion";
 import { TextEffect } from "@/components/ui/TextEffect";
 import { useTranslations } from "next-intl";
+import MagicButton from "@/components/ui/MagicButton";
 
 const transitionVariants: Variants = {
   hidden: {
@@ -69,9 +69,9 @@ export function HeroSection() {
               className="absolute inset-0 -z-20"
             >
               <Image
-                src="/images/night-background.jpg"
+                src="/images/hero-bg.webp"
                 alt="background"
-                className="w-full h-full"
+                className="w-full h-full opacity-35"
                 width={1920}
                 height={1080}
               />
@@ -85,10 +85,13 @@ export function HeroSection() {
                 <AnimatedGroup variants={{ item: transitionVariants }}>
                   <Link
                     href="#link"
-                    className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-black/5 transition-all duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
+                    className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-lg border p-1 px-4 shadow-md shadow-black/5 transition-all duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
                   >
+                    <span className="bg-slate-900 text-white rounded-[calc(var(--radius)-0.25rem)] px-2 py-1 text-xs">
+                      {t("announcement.badge")}
+                    </span>
                     <span className="text-foreground text-sm">
-                      {t("introducing")}
+                      {t("announcement.text")}
                     </span>
                     <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
 
@@ -104,7 +107,7 @@ export function HeroSection() {
                     </div>
                   </Link>
 
-                  <h1 className="mt-8 mx-auto text-balance text-4xl md:text-5xl lg:mt-16 xl:text-[4.5rem] whitespace-pre-line max-w-3xl">
+                  <h1 className="mt-8 mx-auto text-balance text-4xl md:text-5xl lg:mt-16 xl:text-[4.5rem] whitespace-pre-line ">
                     <TextEffect per="word" preset="slide">
                       {t("title")}
                     </TextEffect>
@@ -132,31 +135,15 @@ export function HeroSection() {
                   }}
                   className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row"
                 >
-                  <div
-                    key={1}
-                    className="bg-foreground/10 rounded-[14px] border p-0.5"
-                  >
-                    <Button
-                      asChild
-                      size="lg"
-                      className="rounded-xl px-5 text-base"
-                    >
-                      <Link href="/register">
-                        <span className="text-nowrap">{t("getStarted")}</span>
-                      </Link>
-                    </Button>
-                  </div>
-                  <Button
-                    key={2}
-                    asChild
-                    size="lg"
-                    variant="ghost"
-                    className="h-10.5 rounded-xl px-5"
-                  >
-                    <Link href="/contact">
-                      <span className="text-nowrap">{t("requestDemo")}</span>
+                  <div key={1}>
+                    <Link href="/register">
+                      <MagicButton
+                        title={t("getStarted")}
+                        icon={<Sparkles className="size-4" />}
+                        position="right"
+                      />
                     </Link>
-                  </Button>
+                  </div>
                 </AnimatedGroup>
               </div>
             </div>
@@ -186,22 +173,14 @@ export function HeroSection() {
                 },
               }}
             >
-              <div className="relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
+              <div className="relative mx-auto mt-8 sm:mt-12 md:mt-16 lg:mt-20 overflow-hidden px-2">
                 <div
                   aria-hidden
                   className="bg-gradient-to-b to-background absolute inset-0 z-10 from-transparent from-35%"
                 />
-                <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
+                <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-2xl sm:max-w-4xl lg:max-w-6xl overflow-hidden rounded-xl sm:rounded-2xl border p-2 sm:p-4 shadow-lg shadow-zinc-950/15 ring-1">
                   <Image
-                    className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block"
-                    src="/images/heroimg.webp"
-                    alt="app screen"
-                    width={2700}
-                    height={1440}
-                    priority
-                  />
-                  <Image
-                    className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden"
+                    className="bg-background aspect-video sm:aspect-15/8 relative rounded-lg sm:rounded-2xl w-full border border-border/25 dark:border-transparent"
                     src="/images/heroimg.webp"
                     alt="app screen"
                     width={2700}
